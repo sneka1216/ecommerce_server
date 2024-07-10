@@ -22,7 +22,7 @@ customer.post('/signup', async (req, res) => {
             password:body?.password
         })
             await user.save();
-            const cart = await Cart?.create({user:user?.email})
+            const cart = await Cart?.create({user:user?.email,products:[],totalPrice:0})
             res.send({ user , cart })
         } catch (error) {
             console.log('erros',error)
